@@ -14,4 +14,16 @@ function merge(alist, blist) {
     }
 }
 
-console.log(merge([5], [1, 2, 3]));
+function mergesort(list){
+    if (list.length == 0) {
+        return [];
+    } else if (list.length == 1) {
+        return list;
+    } else {
+        let leftlist = list.slice(0, Math.floor(list.length / 2));
+        let rightlist = list.slice(Math.floor(list.length / 2));
+        return merge(mergesort (leftlist), mergesort(rightlist));
+    }
+}
+
+console.log(mergesort([7, 3, 2, 4, 1]));
